@@ -18,28 +18,29 @@ Para configurar nosso ambiente Kubernetes, vamos precisar de:
 ## Instalando o Docker no Ubuntu 18.04.6 LTS  <img align="center" alt="Docker" height="50" width="50" src="https://logopng.com.br/logos/docker-27.png" /> <img align="center" alt="Docker" height="50" width="50" src="https://brandslogos.com/wp-content/uploads/images/large/ubuntu-logo.png" />
 
 1. Abra o terminal Gnome:
-   ```bash
-   sudo apt install gnome-terminal
+```bash
+sudo apt install gnome-terminal
+   ```
 2. Remova versões antigas do Docker, se existirem:
 
-```bash
-sudo apt-get remove docker docker-engine docker.io containerd runc
-```
+  ```bash
+  sudo apt-get remove docker docker-engine docker.io containerd runc
+  ```
 3. Atualize o índice de pacotes:
 
-```bash
-sudo apt-get update
-```
+  ```bash
+  sudo apt-get update
+  ```
 4. Instale pacotes necessários para usar repositórios HTTPS:
  
-```bash
-sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
-```
+  ```bash
+  sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+  ```
 5. Adicione a chave GPG oficial do Docker:
 
-```bash
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-```
+  ```bash
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+  ```
 6. Adicione o repositório Docker às fontes do APT:
 
 ```bash
