@@ -110,17 +110,34 @@ sudo mv kubectl /usr/local/bin/
 ```bash
 kubectl version --client
 ```
+7. Verifique a versão do kubectl em formato YAML (opcional):
+```bash
+kubectl version --client --output=yaml
+```
 
+## Instalando o Kind <img align="center" alt="Kubernets" height="40" width="80" src="https://kind.sigs.k8s.io/logo/logo.png" />
 
+Baixe o binário do Kind e mova-o para um diretório incluído no seu PATH, como /usr/local/bin:
 
+```Bash
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.12.0/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+```
+Certifique-se de substituir v0.12.0 pela versão mais recente do Kind disponível no site oficial do Kind.
+
+Verifique se o Kind foi instalado corretamente:
+
+```Bash
+kind version
+```
+Com o Kind instalado, você pode agora criar e gerenciar clusters Kubernetes locais usando o Docker.
 
 
 
 
 
 <img align="center" alt="Java" height="600" width="800" src="https://blog.4linux.com.br/wp-content/uploads/2019/06/Devops1-1900x1241_c.jpeg">
-7. Verifique a versão do kubectl em formato YAML (opcional):
 
-```bash
-kubectl version --client --output=yaml
-```
+
+
