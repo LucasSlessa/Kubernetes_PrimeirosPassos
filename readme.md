@@ -110,6 +110,15 @@ sudo mv kubectl /usr/local/bin/
 ```bash
 kubectl version --client
 ```
+
+
+
+
+
+
+
+
+<img align="center" alt="Java" height="600" width="800" src="https://blog.4linux.com.br/wp-content/uploads/2019/06/Devops1-1900x1241_c.jpeg">
 7. Verifique a versão do kubectl em formato YAML (opcional):
 
 ```bash
