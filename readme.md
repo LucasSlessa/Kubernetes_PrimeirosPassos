@@ -1,4 +1,4 @@
-# Configuração do Ambiente Kubernetes
+# Configuração do Ambiente Kubernetes   <img align="center" alt="Kubernets" height="50" width="50" src="https://hermes.dio.me/articles/cover/d15641bf-9cee-493e-a5a4-f41ca0ffe7f7.png" />
 
 ## Preparação do Ambiente
 
@@ -15,7 +15,7 @@ Para configurar nosso ambiente Kubernetes, vamos precisar de:
   - [Kind](https://kind.sigs.k8s.io/)
   - [k3d](https://k3d.io/)
 
-## Instalando o Docker no Ubuntu 18.04.6 LTS
+## Instalando o Docker no Ubuntu 18.04.6 LTS  <img align="center" alt="Docker" height="50" width="50" src="https://logopng.com.br/logos/docker-27.png" /> <img align="center" alt="Docker" height="50" width="50" src="https://brandslogos.com/wp-content/uploads/images/large/ubuntu-logo.png" />
 
 1. Abra o terminal Gnome:
    ```bash
@@ -78,7 +78,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 Instalando o kubectl
 ```
-## Instalando o KubeCtl
+## Instalando o KubeCtl <img align="center" alt="Kubernets" height="50" width="50" src="https://hermes.dio.me/articles/cover/d15641bf-9cee-493e-a5a4-f41ca0ffe7f7.png" />
 
 1. verificando a versão mais recente
 2. 
