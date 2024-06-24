@@ -297,8 +297,107 @@ Aqui estão alguns comandos úteis do `kubectl` que podem ajudar na administraç
     kubectl get nodes --show-labels
     ```
 
+# Desplegando uma Aplicação Nginx no Kubernetes
+### Pré-requisitos
+Certifique-se de que você já tem o Docker, kubectl, e kind instalados e configurados corretamente.
 
+## Passos para Desplegar a Aplicação
+1. Criar um Manifesto YAML para o Deployment
+Um manifesto YAML descreve o estado desejado do objeto que você deseja criar no cluster Kubernetes. Vamos criar um manifesto para um Deployment do Nginx.
 
+Crie um arquivo chamado nginx-deployment.yaml com o seguinte conteúdo:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+```
+
+2. Aplicar o Manifesto no Cluster
+Utilize o kubectl para aplicar o manifesto YAML que criamos e desplegar a aplicação no cluster.
+
+```bash
+kubectl apply -f nginx-deployment.yaml
+```
+3. Verificar o Status do Deployment
+Após aplicar o manifesto, verifique se o Deployment foi criado com sucesso e se os pods estão em execução.
+
+```bash
+kubectl get deployments
+kubectl get pods
+```
+4. Expor o Deployment com um Serviço
+Para tornar a aplicação acessível externamente, precisamos expor o Deployment com um Serviço. Crie um arquivo chamado nginx-service.yaml com o seguinte conteúdo:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+```
+5. Aplicar o Manifesto do Serviço
+Utilize o kubectl para aplicar o manifesto YAML do Serviço.
+
+```bash
+kubectl apply -f nginx-service.yaml
+```
+6. Verificar o Status do Serviço
+Verifique se o Serviço foi criado corretamente e obtenha o endereço IP para acessar a aplicação.
+
+```bash
+kubectl get services
+```
+Se o tipo LoadBalancer não estiver disponível no seu ambiente local, você pode usar o tipo NodePort para acessar a aplicação via um dos nós do cluster.
+
+7. Acessar a Aplicação
+Depois que o Serviço estiver em execução, você poderá acessar a aplicação Nginx através do endereço IP e porta fornecidos pelo Serviço.
+
+### Comandos Úteis para Gerenciamento
+
+comandos úteis para gerenciar sua aplicação no Kubernetes:
+
+Ver detalhes de um Deployment específico:
+```bash
+kubectl describe deployment nginx-deployment
+```
+Ver detalhes de um Serviço específico:
+```bash
+kubectl describe service nginx-service
+```
+Escalar o número de réplicas de um Deployment:
+```bash
+kubectl scale deployment nginx-deployment --replicas=4
+```
+Atualizar a imagem de um contêiner em um Deployment:
+```bash
+kubectl set image deployment/nginx-deployment nginx=nginx:1.19.10
+```
 
 <img align="center" alt="Java" height="600" width="800" src="https://blog.4linux.com.br/wp-content/uploads/2019/06/Devops1-1900x1241_c.jpeg">
 
